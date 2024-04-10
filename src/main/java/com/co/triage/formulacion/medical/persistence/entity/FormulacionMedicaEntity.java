@@ -9,7 +9,7 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-@Table(name = "formulacionmedca")
+@Table(name = "formulacionmedica")
 public class FormulacionMedicaEntity {
     @Id
     @Column(name = "idFormula")
@@ -27,4 +27,16 @@ public class FormulacionMedicaEntity {
     private String strObservacion;
     @Column(name = "dtFechaFormulario")
     private Date dtFechaFormulario;
+
+    @ManyToOne
+    @JoinColumn(name = "idMedico", referencedColumnName = "idMedico", insertable = false, updatable = false)
+    private MedicoEntity medico;
+
+    @ManyToOne
+    @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente", insertable = false, updatable = false)
+    private PacienteEntity paciente;
+
+    @ManyToOne
+    @JoinColumn(name = "idMedicamento", referencedColumnName = "id_Medicamento", insertable = false, updatable = false)
+    private MedicamentosEntity medicamentos;
 }
