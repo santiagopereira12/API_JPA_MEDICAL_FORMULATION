@@ -13,7 +13,6 @@ import java.util.Date;
 public class FormulacionMedicaEntity {
     @Id
     @Column(name = "idFormula")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idFormula;
     @Column(name = "idMedico")
     private String idMedico;
@@ -37,6 +36,6 @@ public class FormulacionMedicaEntity {
     private PacienteEntity paciente;
 
     @ManyToOne
-    @JoinColumn(name = "idMedicamento", referencedColumnName = "id_Medicamento", insertable = false, updatable = false)
+    @JoinColumn(name = "idMedicamento", referencedColumnName = "idMedicamento", insertable = false, updatable = false)
     private MedicamentosEntity medicamentos;
 }
