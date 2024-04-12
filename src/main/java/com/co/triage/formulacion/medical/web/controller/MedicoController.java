@@ -5,6 +5,7 @@ import com.co.triage.formulacion.medical.service.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +24,10 @@ public class MedicoController {
     @GetMapping
     public ResponseEntity<List<MedicoEntity>> getAll(){
         return ResponseEntity.ok(this.medicoService.getAll());
+    }
+
+    @GetMapping("/{idMedico}")
+    public ResponseEntity<MedicoEntity> get(@PathVariable long idMedico){
+        return ResponseEntity.ok(this.medicoService.get(idMedico));
     }
 }

@@ -1,23 +1,26 @@
 package com.co.triage.formulacion.medical.service;
 
 import com.co.triage.formulacion.medical.persistence.entity.MedicoEntity;
+import com.co.triage.formulacion.medical.persistence.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class MedicoService {
-    private final JdbcTemplate jdbcTemplate;
+    private final MedicoRepository medicoRepository;
 
     @Autowired
-    public MedicoService(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    public MedicoService(MedicoRepository medicoRepository) {
+        this.medicoRepository = medicoRepository;
     }
 
     public List<MedicoEntity> getAll(){
-        return this.jdbcTemplate.query("SELECT * FROM medico", new BeanPropertyRowMapper<>(MedicoEntity.class));
+        return this.medicoRepository.findAll();
+    }
+
+    public MedicoEntity get(long idMedico){
+        return this.medicoRepository.findById(idMedico).orElse(null);
     }
 }
