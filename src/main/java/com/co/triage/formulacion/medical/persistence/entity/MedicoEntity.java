@@ -12,13 +12,12 @@ import java.util.List;
 @Table(name = "medico")
 public class MedicoEntity {
     @Id
-    @Column(name = "idMedico")
-    private String idMedico;
+    @Column(name = "id_medico")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idMedico;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "apellido")
     private String apellido;
 
-    @OneToMany(mappedBy = "medico")
-    private List<FormulacionMedicaEntity> formulacion;
 }

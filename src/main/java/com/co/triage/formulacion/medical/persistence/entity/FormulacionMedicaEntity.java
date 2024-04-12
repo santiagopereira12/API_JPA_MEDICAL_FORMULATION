@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Getter
@@ -12,30 +12,25 @@ import java.util.Date;
 @Table(name = "formulacionmedica")
 public class FormulacionMedicaEntity {
     @Id
-    @Column(name = "idFormula")
-    private Integer idFormula;
-    @Column(name = "idMedico")
-    private String idMedico;
-    @Column(name = "idPaciente")
-    private String idPaciente;
-    @Column(name = "idMedicamento")
-    private String idMedicamento;
-    @Column(name = "intCantidad")
+    @Column(name = "id_formula")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idFormula;
+    @Column(name = "int_cantidad")
     private Integer intCantidad;
-    @Column(name = "strObservacion")
+    @Column(name = "str_observacion")
     private String strObservacion;
-    @Column(name = "dtFechaFormulario")
-    private Date dtFechaFormulario;
+    @Column(name = "dt_fecha_formulacion")
+    private Date dtFechaFormularcion;
 
     @ManyToOne
-    @JoinColumn(name = "idMedico", referencedColumnName = "idMedico", insertable = false, updatable = false)
+    @JoinColumn(name = "id_medico", referencedColumnName = "id_medico", insertable = false, updatable = false)
     private MedicoEntity medico;
 
     @ManyToOne
-    @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente", insertable = false, updatable = false)
+    @JoinColumn(name = "id_paciente", referencedColumnName = "id_paciente", insertable = false, updatable = false)
     private PacienteEntity paciente;
 
     @ManyToOne
-    @JoinColumn(name = "idMedicamento", referencedColumnName = "idMedicamento", insertable = false, updatable = false)
+    @JoinColumn(name = "id_medicamento", referencedColumnName = "id_medicamento", insertable = false, updatable = false)
     private MedicamentosEntity medicamentos;
 }

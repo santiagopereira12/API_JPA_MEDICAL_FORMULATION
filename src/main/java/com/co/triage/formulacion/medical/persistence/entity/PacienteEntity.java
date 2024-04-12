@@ -10,8 +10,9 @@ import lombok.Setter;
 @Table(name = "paciente")
 public class PacienteEntity {
     @Id
-    @Column(name = "idPaciente")
-    private String idPaciente;
+    @Column(name = "id_paciente")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idPaciente;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "apellido")

@@ -13,7 +13,7 @@ public class MedicamentosEntity {
     @Id
     @Column(name = "id_medicamento")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String idMedicamentos;
+    private Long idMedicamentos;
     @Column(name = "nombre_medicamento")
     private String nombreMedicamento;
     @Column(name = "url")
