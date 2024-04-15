@@ -23,4 +23,18 @@ public class MedicoService {
     public MedicoEntity get(long idMedico){
         return this.medicoRepository.findById(idMedico).orElse(null);
     }
+
+    public MedicoEntity save(MedicoEntity medico){
+        return this.medicoRepository.save(medico);
+    }
+
+    public void delete(long idMedico){
+        this.medicoRepository.deleteById(idMedico);
+    }
+
+    public boolean exists(long idMedico){
+        return this.medicoRepository.existsById(idMedico);
+    }
+
+
 }

@@ -4,10 +4,7 @@ import com.co.triage.formulacion.medical.persistence.entity.MedicoEntity;
 import com.co.triage.formulacion.medical.service.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +26,30 @@ public class MedicoController {
     @GetMapping("/{idMedico}")
     public ResponseEntity<MedicoEntity> get(@PathVariable long idMedico){
         return ResponseEntity.ok(this.medicoService.get(idMedico));
+    }
+
+    @PostMapping
+    public ResponseEntity<MedicoEntity> add(@RequestBody MedicoEntity medico){
+        if (medico.getIdMedico() == null || !this.medicoService.exists(medico.getIdMedico())){
+            return ResponseEntity.ok(this.medicoService.save(medico));
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+    @PutMapping
+    public ResponseEntity<MedicoEntity> update(@RequestBody MedicoEntity medico){
+        if (medico.getIdMedico() != null && this.medicoService.exists(medico.getIdMedico())){
+            return ResponseEntity.ok(this.medicoService.save(medico));
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+    @DeleteMapping("/{idMedico}")
+    public ResponseEntity<Void> delete(@PathVariable long idMedico){
+        if(this.medicoService.exists(idMedico)){
+            this.medicoService.delete(idMedico);
+            //return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.badRequest().build();
     }
 }

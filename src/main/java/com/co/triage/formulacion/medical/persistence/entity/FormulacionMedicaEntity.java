@@ -33,4 +33,60 @@ public class FormulacionMedicaEntity {
     @ManyToOne
     @JoinColumn(name = "id_medicamento", referencedColumnName = "id_medicamento", insertable = false, updatable = false)
     private MedicamentosEntity medicamentos;
+
+    public long getIdFormula() {
+        return idFormula;
+    }
+
+    public void setIdFormula(long idFormula) {
+        this.idFormula = idFormula;
+    }
+
+    public Integer getIntCantidad() {
+        return intCantidad;
+    }
+
+    public void setIntCantidad(Integer intCantidad) {
+        this.intCantidad = intCantidad;
+    }
+
+    public String getStrObservacion() {
+        return strObservacion;
+    }
+
+    public void setStrObservacion(String strObservacion) {
+        this.strObservacion = strObservacion;
+    }
+
+    public Date getDtFechaFormularcion() {
+        return dtFechaFormularcion;
+    }
+
+    public void setDtFechaFormularcion(Date dtFechaFormularcion) {
+        this.dtFechaFormularcion = dtFechaFormularcion;
+    }
+
+    public MedicoEntity getMedico() {
+        return medico;
+    }
+
+    public void setMedico(MedicoEntity medico) {
+        this.medico = medico;
+    }
+
+    public PacienteEntity getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(PacienteEntity paciente) {
+        this.paciente = paciente;
+    }
+
+    public MedicamentosEntity getMedicamentos() {
+        return medicamentos;
+    }
+
+    public void setMedicamentos(MedicamentosEntity medicamentos) {
+        this.medicamentos = medicamentos;
+    }
 }

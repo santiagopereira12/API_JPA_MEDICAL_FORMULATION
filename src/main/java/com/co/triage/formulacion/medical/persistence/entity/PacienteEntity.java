@@ -17,4 +17,28 @@ public class PacienteEntity {
     private String nombre;
     @Column(name = "apellido")
     private String apellido;
+
+    public long getIdPaciente() {
+        return idPaciente;
+    }
+
+    public void setIdPaciente(long idPaciente) {
+        this.idPaciente = idPaciente;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 }
