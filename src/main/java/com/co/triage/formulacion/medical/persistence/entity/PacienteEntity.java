@@ -12,17 +12,17 @@ public class PacienteEntity {
     @Id
     @Column(name = "id_paciente")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idPaciente;
+    private Long idPaciente;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "apellido")
     private String apellido;
 
-    public long getIdPaciente() {
+    public Long getIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(long idPaciente) {
+    public void setIdPaciente(Long idPaciente) {
         this.idPaciente = idPaciente;
     }
 

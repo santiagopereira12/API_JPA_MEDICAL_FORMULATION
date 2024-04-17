@@ -19,4 +19,20 @@ public class PacienteService {
     public List<PacienteEntity> getAll(){
         return this.pacienteRepository.findAll();
     }
+
+    public PacienteEntity get(long idPaciente){
+        return this.pacienteRepository.findById(idPaciente).orElse(null);
+    }
+
+    public PacienteEntity save(PacienteEntity paciente){
+        return this.pacienteRepository.save(paciente);
+    }
+
+    public void delete(long idPaciente){
+        this.pacienteRepository.deleteById(idPaciente);
+    }
+
+    public boolean exists(long idPaciente){
+        return this.pacienteRepository.existsById(idPaciente);
+    }
 }
